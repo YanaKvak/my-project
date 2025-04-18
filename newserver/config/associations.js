@@ -33,8 +33,8 @@ const setupAssociations = () => {
   Task.belongsTo(TaskStatus, { foreignKey: 'status_id', as: 'status' });
 
   // Task <-> Tag (many-to-many)
-  Task.belongsToMany(Tag, { through: 'TaskTag', foreignKey: 'task_id', otherKey: 'tag_id', as: 'tags' });
-  Tag.belongsToMany(Task, { through: 'TaskTag', foreignKey: 'tag_id', otherKey: 'task_id', as: 'tasks' });
+  Task.belongsToMany(Tag, { through: 'TaskTag', foreignKey: 'task_id', otherKey: 'tag_id', as: 'taskTags' });
+  Tag.belongsToMany(Task, { through: 'TaskTag', foreignKey: 'tag_id', otherKey: 'task_id', as: 'taggedTasks' });
 
   // User -> Event
   User.hasMany(Event, { foreignKey: 'user_id', as: 'events' });
